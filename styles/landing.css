@@ -1,0 +1,71 @@
+div#main-jumbo {
+    background: white;
+}
+
+/* url(../assets/landingBackground.png) */
+
+div#main-jumbo__actionWrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: auto;
+    position: absolute;
+}
+
+img#actionWrapper__logo {
+    width: 160px;
+    height: 162px;
+    display: block;
+    margin: auto;
+}
+
+p#actionWrapper__text {
+    width: 70%;
+    display: block;
+    color: black;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div#actionWrapper__buttonWrapper {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+input#buttonWrapper__button {
+    width: 58%;
+    display: inline;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #212121;
+    color: white;
+    font-weight: bold;
+    border: none;
+    height: 45px;
+    border-radius: 5px;
+}
+
+input#buttonWrapper__button:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    div#main-jumbo__actionWrapper {
+        width: 100%;
+        height: auto;
+    }
+
+    img#actionWrapper__logo {
+        width: 50%;
+        height: auto;
+    }
+
+    p#actionWrapper__text {
+        width: 50%;
+    }
+
+}

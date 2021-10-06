@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+  <title>Sign Up · Olog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Olog is a versatile platform that allows easy access to neural networks">
+  <meta name="keywords" content="neural networks,platform,drive,olog,math,data science">
+  <meta name="robots" content="noindex">
+  <meta name="author" content="Olog">
+  <meta name="viewport" content="initial-scale=1.0">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
+
+  <!-- Externals -->
+  <script src="externals/firebase/firebase.js" type="text/javascript"></script>
+  <script src="externals/tippy/tippy_mod.all.min.js" type="text/javascript"></script>
+  <script src="externals/vue/vue.js" type="text/javascript"></script>
+
+  <!-- Native CSS -->
+  <link rel="stylesheet" href="styles/master.css">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/oauth.css">
+
+</head>
+
+<body class="universal__fontface">
+  <div id="tippy-1" class="tippy-popper" name="tippy-catalyst_d"></div>
+
+  <div class="universal__centerDialog" id="main-new-dialog" v-if="signup">
+    <div id="main-new-dialog__logo-wrapper" class="universal__headerWrapper">
+      <img src="assets/Icon45x46.png" class="sub-wrapper-logo">
+    </div>
+    <h1>Sign Up</h1>
+    <label for="newfname" class="universal__inputLabel">FIRST NAME</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="main-new-dialog__firstName" name="newfname" type="text" class="universal__standardTextInput" placeholder="Your First Name">
+
+    <label for="newlname" class="universal__inputLabel">LAST NAME</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="main-new-dialog__lastName" name="newlname" type="text" class="universal__standardTextInput" placeholder="Your Last Name">
+
+    <label for="newemail" class="universal__inputLabel">EMAIL</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="main-new-dialog__email" name="newemil" type="email" class="universal__standardTextInput" placeholder="Your email address">
+
+    <label for="newipassword" class="universal__inputLabel">PASSWORD</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="main-new-dialog__password" name="newipassword" type="password" class="universal__standardTextInput" placeholder="Enter a password">
+
+    <label for="newcpassword" class="universal__inputLabel">CONFIRM YOUR PASSWORD</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="main-new-dialog__confirmPassword" name="newcpassword" type="password" class="universal__standardTextInput" placeholder="Confirm the password you entered above">
+
+    <input type="button" id="main-new-dialog__register" value="Sign Up">
+
+    <p id="main-new-dialog__changeAuthMethod">Already have an account? Log in here!</p>
+  </div>
+
+
+  <div class="universal__centerDialog" id="main-returning-dialog" v-if="login">
+    <div id="main-returning-dialog__logo-wrapper" class="universal__headerWrapper">
+      <img src="assets/Icon45x46.png" class="sub-wrapper-logo">
+    </div>
+    <h1>Log In</h1>
+
+    <label for="returningemail" class="universal__inputLabel">EMAIL</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="main-returning-dialog__email" name="returningemail" type="email" class="universal__standardTextInput" placeholder="Your email address">
+
+    <label for="returningpassword" class="universal__inputLabel">PASSWORD</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="main-returning-dialog__password" name="returningpassword" type="password" class="universal__standardTextInput" placeholder="Enter a password">
+
+    <input type="button" id="main-returning-dialog__login" value="Log In">
+
+    <p id="main-returning-dialog__changeAuthMethod">Don't have an account? Sign up here!</p>
+  </div>
+
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/oauth.js"></script>
+</body>
+
+</html>

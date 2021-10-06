@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>Olog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Page Description">
+  <meta name="keywords" content="Page Keywords">
+  <meta name="author" content="Page Author">
+  <meta name="viewport" content="initial-scale=1.0">
+
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
+
+  <!-- Externals -->
+  <script src="externals/firebase/firebase.js" type="text/javascript"></script>
+  <script src="externals/tippy/tippy.all.min.js" type="text/javascript"></script>
+  <script src="externals/relative-date/relative-date.js" type="text/javascript"></script>
+  <script src="externals/uri/uri.min.js" type="text/javascript"></script>
+  <script src="externals/brain/brain.js" type="text/javascript"></script>
+  <script src="externals/relative-date/relative-date.js" type="text/javascript"></script>
+  <script src="externals/jquery/jquery.js" type="text/javascript"></script>
+  <script src="externals/nn/main.js" type="text/javascript"></script>
+
+  <!-- Native CSS -->
+  <link rel="stylesheet" href="styles/master.css">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/editor.css">
+
+</head>
+
+<body class="universal__fontface">
+
+  <div class="universal__header" id="main-header">
+    <div id="header__logo-wrapper" class="universal__headerWrapper">
+      <img src="assets/Icon45x46.png" id="logo-wrapper__logo">
+    </div>
+    <div id="header__title-wrapper" class="universal__headerWrapper">
+      <h1 id="title-wrapper__title" contenteditable="true" spellcheck="false"></h1>
+    </div>
+
+
+
+
+
+
+    <div id="header__profileIcon-wrapper" class="universal__headerWrapper">
+      <img id="profileIcon-wrapper__profileIcon" src="assets/noIcon.png">
+    </div>
+
+    <div id="header__download-wrapper" class="universal__headerWrapper">
+      <img src="assets/ic_file_download_white_24px.svg" id="download-wrapper__downloadButton">
+    </div>
+    <div id="header__saveFeedback-wrapper" class="universal__headerWrapper">
+      <p id="saveFeedback-wrapper__saveFeedback"></p>
+    </div>
+
+  </div>
+  <div id="main-toolbar">
+    <div class="main-toolbar__buttonWrapper" id="main-toolbar__createInputButtonWrapper">
+      <input type="button" id="createInputButtonWrapper__createInputLayerButton" value="CREATE INPUT LAYER +">
+    </div>
+    <div class="main-toolbar__buttonWrapper" id="main-toolbar__createLayerButtonWrapper">
+      <input type="button" id="createLayerButtonWrapper__createLayerButton" value="CREATE LAYER +">
+    </div>
+    <div class="main-toolbar__buttonWrapper" id="main-toolbar__createOutputButtonWrapper">
+      <input type="button" id="createOutputButtonWrapper__createOutputLayerButton" value="CREATE OUTPUT LAYER +">
+    </div>
+    <div class="main-toolbar__buttonWrapper" id="main-toolbar__dataButtonWrapper">
+      <input type="button" id="dataButtonWrapper__dataButton" value="DATA">
+    </div>
+    <div class="main-toolbar__buttonWrapper" id="main-toolbar__settingsButtonWrapper">
+      <input type="button" id="settingsButtonWrapper__settingsButton" value="SETTINGS">
+    </div>
+
+    <div class="main-toolbar__buttonWrapper" id="main-toolbar__runNetworkButtonWrapper">
+      <input type="button" id="runNetworkButtonWrapper__runNetworkButton" value="RUN NETWORK" data-target="">
+    </div>
+
+    <div class="main-toolbar__buttonWrapper" id="main-toolbar__testNetworkButtonWrapper">
+      <input type="button" id="testNetworkButtonWrapper__testNetworkButton" value="TRAIN NETWORK">
+    </div>
+
+  </div>
+
+  <div id="main-editLine">
+
+    <div id="main-editLine__inputWrapper">
+      <div id="inputWrapper__tagWrapper"><span>INPUT</span></div>
+      <div id="inputWrapper__textWrapper"><input id="textWrapper__inputInput" disabled placeholder="Select an input node below to change it's input value" data-action=""></div>
+    </div>
+    <div id="main-editLine__outputWrapper">
+      <div id="outputWrapper__tagWrapper"><span>OUTPUT</span></div>
+      <div id="outputWrapper__textWrapper"><input id="textWrapper__outputInput" disabled placeholder="Select an input node below to change it's output value" data-action=""></div>
+    </div>
+
+
+    <!--<input id="main-editLine__input" placeholder="Select an input node below to change it's value" data-action=""> -->
+  </div>
+
+  <div id="main-editor">
+  </div>
+
+  <div id="main-stats">
+    <div id="main-stats__titleWrapper">
+      <p id="titleWrapper__title">Network Statistics</p>
+    </div>
+    <div id="main-stats__trainingErrorWrapper">
+      <p id="trainingErrorWrapper__trainingErrorText">Training Error: <span id="trainingErrorText__trainingError">train network to see training error</span></p>
+    </div>
+    <div id="main-stats__iterationsWrapper">
+      <p id="iterationsWrapper__iterationsText">Iterations: <span id="iterationsText__iterations">train network to see iterations</span></p>
+    </div>
+  </div>
+
+  <div class="template__accountDropdown" style="display:none;" id="template-accountDropdown">
+    <input type="button" class="dropDown-pill accountDropdown-logout" id="accountDropdown__logOut" value="Log Out" onclick="firebase.auth().signOut();">
+    <input type="button" class="dropDown-pill accountDropdown-accessProfile" id="accountDropdown__accessProfile" value="Profile">
+  </div>
+
+  <div id="node-contextmenu" class="template-contextmenu" style="display: none;" data-action="">
+    <input type="button" class="dropDown-pill contextmenu-delete" id="node-contextmenu-delete" value="Delete">
+  </div>
+
+  <div id="wrapper-contextmenu" class="template-contextmenu" style="display: none;" data-action="">
+    <input type="button" class="dropDown-pill contextmenu-delete" id="wrapper-contextmenu-delete" value="Delete">
+  </div>
+
+  <div id="main-modal" class="universal__modal" data-action="">
+    <div id="main-modal__modal-body" class="universal__modal-body">
+      <div id="modal-body__modal-title-wrapper" class="universal__modal-title-wrapper">
+        <h1 id="modal-title-wrapper__modal-title" class="universal__modal-title"></h1>
+      </div>
+      <div id="modal-body__modal-content-wrapper" class="universal__modal-content-wrapper"></div>
+      <div id="modal-body__modal-closer-wrapper" class="universal__modal-closer-wrapper">
+        <input id="modal-closer-wrapper__modal-submitter" type="button" value="SUBMIT" class="universal__modal-closer">
+        <input id="modal-closer-wrapper__modal-closer" type="button" value="CLOSE" class="universal__modal-closer">
+      </div>
+    </div>
+    <div id="main-modal__blackAnullment" class="universal__blackAnullment"></div>
+  </div>
+
+
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/editor.js"></script>
+</body>
+
+</html>

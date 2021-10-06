@@ -1,0 +1,79 @@
+body {
+    overflow: hidden;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #212121;
+}
+
+div#main-new-dialog__logo-wrapper,
+div#main-returning-dialog__logo-wrapper {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.sub-wrapper-logo {
+    vertical-align: middle;
+}
+
+.universal__header {
+    background: none;
+}
+
+div#main-new-dialog,
+div#main-returning-dialog {
+    width: 30%;
+    height: auto;
+    padding-bottom: 31px;
+    background-color: white;
+    max-width: 400px;
+    min-width: 350px;
+}
+
+div#main-returning-dialog {
+    display: none;
+}
+
+div#main-new-dialog {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+
+input#main-new-dialog__register,
+input#main-returning-dialog__login {
+    width: 100%;
+    padding: 10px;
+    background-color: #212121;
+    color: white;
+    box-sizing: border-box;
+    border-width: 0px;
+    border-radius: 2.5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+p#main-new-dialog__changeAuthMethod,
+p#main-returning-dialog__changeAuthMethod {
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* Manipulating External Sources */
+
+.error-theme {
+    background-color: #C62828;
+}
+
+.tippy-arrow {
+    border-right: 9px solid #C62828;
+}

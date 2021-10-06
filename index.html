@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+  <title>Olog · A versatile platform that allows easy access to neural networks</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Olog is a versatile platform that allows easy access to neural networks">
+  <meta name="keywords" content="neural networks,platform,drive,olog,math,data science">
+  <meta name="author" content="Olog">
+  <meta name="robots" content="index">
+  <meta name="viewport" content="initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/master.css">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/landing.css">
+
+
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
+
+  <!-- Externals -->
+  <script src="externals/firebase/firebase.js" type="text/javascript"></script>
+
+</head>
+
+<body class="universal__fontface">
+
+  <script type="text/javascript">
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        window.location.href = "dashboard.html";
+      }
+    })
+  </script>
+
+  <div id="main-jumbo" class="universal__jumbo">
+    <div id="main-jumbo__actionWrapper">
+      <img id="actionWrapper__logo" src="assets/Icon1086x1125.png">
+      <p id="actionWrapper__text">Olog is a versatile platform that allows easy access to neural networks</p>
+      <div id="actionWrapper__buttonWrapper">
+        <input id="buttonWrapper__button" type="button" value="GET STARTED">
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/main.js"></script>
+  <script>
+    document.getElementById("buttonWrapper__button").addEventListener("click", function() {
+      window.location.href = "oauth.html";
+    })
+  </script>
+</body>
+
+</html>

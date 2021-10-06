@@ -1,0 +1,187 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+  <title>Dashboard · Olog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Olog is a versatile platform that allows easy access to neural networks">
+  <meta name="keywords" content="neural Networks,platform,drive,olog,math,data science">
+  <meta name="author" content="Olog">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="initial-scale=1.0">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
+
+  <!-- Externals -->
+  <script src="externals/firebase/firebase.js" type="text/javascript"></script>
+  <script src="externals/tippy/tippy.all.min.js" type="text/javascript"></script>
+  <script src="externals/relative-date/relative-date.js" type="text/javascript"></script>
+  <script src="externals/jquery/jquery.js" type="text/javascript"></script>
+
+  <!-- Native CSS -->
+  <link rel="stylesheet" href="styles/master.css">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+
+</head>
+
+<body class="universal__fontface">
+  <a id="editor-portal" target="_blank" style="display: none;" href="editor.html"></a>
+  <div id="tippy-1" class="tippy-popper" name="tippy-catalyst_d"></div>
+
+  <div id="page__main-header" class="t__main-header --primary-background --centered-inline-elements">
+    <div id="main-header__logo-wrapper" class="t__main-header-wrapper --invisible --no-margin">
+      <img id="logo-wrapper__logo" src="assets/icon_45x46.png" class="--vertically-aligned --far-right">
+    </div>
+    <div id="main-header__search-bar-wrapper" class="t__main-header-wrapper --invisible">
+      <input id="search-bar-wrapper__search-bar" class="t__search-bar --vertically-aligned --horizontally-aligned" placeholder="Search through your neural networks" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div id="main-header__profile-wrapper" class="t__main-header-wrapper --invisible  --no-margin">
+      <img id="profile-wrapper__profile" src="assets/default_icon.png" class="--vertically-aligned --small-square --rounded-border --clickable --far-left">
+    </div>
+  </div>
+
+  <div id="page__network-listing-wrapper">
+    <div id="network-listing-wrapper__network-listing">
+      <div id="network-listing-wrapper__network-addition-card" class="t__listing-card --rounded-border">
+        <p id="network-addition-card__network-addition-symbol" class="--vertically-aligned --horizontally-aligned">+</p>
+      </div>
+      <div class="t__listing-card --rounded-border --pulsing-blankness">
+        &nbsp;
+      </div>
+      <div class="t__listing-card --rounded-border --pulsing-blankness">
+        &nbsp;
+      </div>
+      <div class="t__listing-card --rounded-border --pulsing-blankness">
+        &nbsp;
+      </div>
+      <div class="t__listing-card --rounded-border --pulsing-blankness">
+        &nbsp;
+      </div>
+      <div class="t__listing-card --rounded-border --pulsing-blankness">
+        &nbsp;
+      </div>
+      <div class="t__listing-card --rounded-border --pulsing-blankness">
+      </div>
+      <div class="t__listing-card --rounded-border">
+
+        <div class="listing-cards__image-container">
+          <img class="image-container__image --horizontally-aligned --vertically-aligned" src="assets/gray_icon_60_62.png">
+        </div>
+        <div class="listing-cards__title --primary-background">
+          <p class="title__title --no-margin --vertically-aligned">Hello</p>
+        </div>
+        <div class="listing-cards__edit-date --primary-background">
+          <p class="edit-date__edit-date --no-margin">4:53</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="template__accountDropdown" style="display:none;" id="template-accountDropdown">
+      <input type="button" class="dropDown-pill accountDropdown-logout" id="accountDropdown__logOut" value="Log Out" onclick="firebase.auth().signOut();">
+      <input type="button" class="dropDown-pill accountDropdown-accessProfile" id="accountDropdown__accessProfile" value="Profile">
+    </div>
+
+    <div id="deleteExclusive-contextmenu" class="template-contextmenu" style="display: none;" data-action="">
+      <input type="button" class="dropDown-pill contextmenu-delete" id="contextmenu-delete" value="Delete">
+      <input type="button" class="dropDown-pill contextmenu-rename" id="contextmenu-rename" value="Rename">
+
+
+
+    </div>
+
+    <div id="networks-contextmenu" class="template-contextmenu" style="display: none;" data-action="">
+      <input type="button" class="dropDown-pill contextmenu-delete" id="network-contextmenu-newNetwork" value="Make A New Network">
+
+    </div>
+
+    <div id="main-modal" class="universal__modal" data-action="">
+      <div id="main-modal__modal-body" class="universal__modal-body">
+        <div id="modal-body__modal-title-wrapper" class="universal__modal-title-wrapper">
+          <h1 id="modal-title-wrapper__modal-title" class="universal__modal-title"></h1>
+        </div>
+        <div id="modal-body__modal-content-wrapper" class="universal__modal-content-wrapper"></div>
+        <div id="modal-body__modal-closer-wrapper" class="universal__modal-closer-wrapper">
+          <input id="modal-closer-wrapper__modal-submitter" type="button" value="SUBMIT" class="universal__modal-closer">
+          <input id="modal-closer-wrapper__modal-closer" type="button" value="CLOSE" class="universal__modal-closer">
+        </div>
+      </div>
+      <div id="main-modal__blackAnullment" class="universal__blackAnullment"></div>
+    </div>
+
+
+    <div id="page__bucket" class="m__no-show">
+      <svg id="&context-menu__circle-accent" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle id="circle-accent__outer-circle" cx="50" cy="50" r="50" fill="rgba(150,150,150,0.5)"/>
+        <circle id="circle-accent__inner-circle" cx="50" cy="50" r="30" fill="rgba(150,150,150,0.2)"/>
+      </svg>
+    </div>
+
+
+    <!-- Olog -->
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/javascript">
+      //Listen out for any authentication changes
+      Olog.authentication_listener.initiate(this.document, firebase);
+
+      //Initiates the network card context menu process
+      Olog.context_menu.initiate(this.document, {
+        data: [{
+          name: "for-network-card",
+          triggers: [".networks__network-card", ".network-card__image", ".network-card__label", ".label__text"],
+          options: [{
+              content: "Delete",
+              handler: function(node) {
+                alert("Hey" + node.id);
+              }
+            },
+            {
+              content: "Rename",
+              handler: function(node) {
+                alert("Hey" + node.id);
+              }
+            }
+          ]
+        }, {
+          name: "for-network-listing",
+          triggers: [],
+          options: [{
+            content: "Make a new network",
+            handler: function(node) {
+
+            }
+          }]
+        }]
+      });
+
+      Olog.account_dropdown.initiate(this.document, tippy, {
+        data: [{
+          triggers: [],
+          options: [{
+            content: "Log Out",
+            handler: function(host_document, node, firebase) {
+              firebase.auth().signOut();
+            }
+          }, {
+            content: "Profile",
+            handler: function() {
+
+            }
+          }]
+        }]
+      });
+
+      Olog.modal.create(this.document, "{}");
+    </script>
+
+    <script type="text/javascript" src="js/dashboard.js"></script>
+    <script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
+</body>
+
+</html>
